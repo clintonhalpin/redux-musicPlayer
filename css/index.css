@@ -1,0 +1,23 @@
+body {
+    font-family: 'Circular Std', Helvetica Neue, Arial, san-serif;
+}
+
+.main {
+    padding: 1rem;
+}
+
+.text--truncate {
+    max-width: 100%; /* 1 */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    word-wrap: normal !important; /* 2 */
+}
+
+.text--center {
+    text-align: center;
+}
+
+.text--purple {
+    color: #9013FE
+}
