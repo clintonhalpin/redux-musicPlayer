@@ -5,9 +5,6 @@ export default class TrackList extends Component {
 
   render() {
     const {tracks, playingTrack, actions} = this.props;
-    let styles = {
-        marginBottom: 96 
-    }
     return (
       <div style={styles}>
           {this.props.tracks.map((trackObject,idx) =>
@@ -20,4 +17,8 @@ export default class TrackList extends Component {
       </div>
     );
   }
+}
+
+const styles = {
+    marginBottom: 96 
 }

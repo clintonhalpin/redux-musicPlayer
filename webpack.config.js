@@ -1,6 +1,14 @@
 var path = require('path');
 var webpack = require('webpack');
 
+var svgoConfig = JSON.stringify({
+    plugins: [
+        {removeTitle: true},
+        {convertColors: {shorthex: false}},
+        {convertPathData: false}
+    ]
+});
+
 module.exports = {
   devtool: 'eval',
   entry: [
@@ -31,6 +39,13 @@ module.exports = {
     }, {
       test: /\.html?$/,
       loaders: ['html!html']
-    }]
+    },
+    {
+      test: /\.svg?$/,
+      loaders: [
+          'file-loader'
+      ]
+    }
+    ]
   }
 };

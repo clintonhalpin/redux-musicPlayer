@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="25px" height="31px" viewBox="0 0 25 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
+    <title>pause</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-105.000000, -967.000000)" fill="#888888">
+            <g id="PlayerBar" sketch:type="MSLayerGroup" transform="translate(0.000000, 926.000000)">
+                <g id="Inner" transform="translate(49.000000, 30.000000)" sketch:type="MSShapeGroup">
+                    <g id="pause" transform="translate(56.000000, 11.000000)">
+                        <rect id="Rectangle-10" x="0.61743222" y="0.368840846" width="6.9590251" height="30"></rect>
+                        <rect id="Rectangle-10-Copy" x="17.1451168" y="0.368840846" width="6.9590251" height="30"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
