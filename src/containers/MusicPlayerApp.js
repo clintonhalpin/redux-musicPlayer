@@ -4,7 +4,7 @@ import { Connector } from 'react-redux';
 import MainSection from '../components/MainSection';
 import * as MusicPlayerActions from '../actions/MusicPlayerActions';
 
-export default class PokedexApp extends Component {
+export default class MusicPlayerApp extends Component {
   render() {
     return (
       <Connector select={state => ({ musicPlayerStore : state  })}>
