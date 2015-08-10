@@ -3,6 +3,8 @@ import MusicPlayerApp from './MusicPlayerApp';
 import { createStore, combineReducers, compose } from 'redux';
 import { Provider } from 'react-redux';
 import * as reducers from '../reducers';
+import { devTools, persistState } from 'redux-devtools';
+import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
  const finalCreateStore = compose(
    devTools(),

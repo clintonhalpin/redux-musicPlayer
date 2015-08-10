@@ -5,7 +5,9 @@
   "main": "server.js",
   "author": "clintonhalpin@gmail.com",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "prebuild": "node lib/copy.js",
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",
