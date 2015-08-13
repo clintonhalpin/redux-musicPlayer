@@ -1,10 +1,10 @@
 import React from 'react';
-import App from './containers/App';
-import './browser-polyfill.min';
-import './css/index.css';
+import Root from './containers/Root';
+import History from 'react-router/lib/BrowserHistory';
 
+const history = new History();
 
 React.render(
-  <App />,
+  <Root history={history}/>,
   document.getElementById('root')
 );
