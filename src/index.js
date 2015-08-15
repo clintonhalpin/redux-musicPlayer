@@ -1,37 +1,14 @@
 import React from 'react';
 import { createStore } from 'redux';
-import tracksApp from './flux/reducers';
+import tracksAppStore from './flux/reducers';
 import * as constants from './flux/constants';
 import * as actions from './flux/actions';
+import BrowserHistory from 'react-router/lib/BrowserHistory';
+import Root from './containers/Root';
+import './styles/index.css'
 
+React.render(
+  <Root history={new BrowserHistory()} />,
+  document.getElementById('root')
+);
 
-let store = createStore(tracksApp);
-
-console.group('Initial State');
-console.log(store.getState());
-console.groupEnd();
-
-store.dispatch(actions.setCurrentSong(0));
-
-console.group('Select a Song');
-console.log(store.getState());
-console.groupEnd();
-
-
-store.dispatch(actions.pauseCurrentSong());
-
-console.group('Pause the current song');
-console.log(store.getState());
-console.groupEnd();
-
-store.dispatch(actions.nextSong(store.getState().playingSongID));
-
-console.group('Next song');
-console.log(store.getState());
-console.groupEnd();
-
-store.dispatch(actions.prevSong(store.getState().playingSongID));
-
-console.group('Previous song');
-console.log(store.getState());
-console.groupEnd();

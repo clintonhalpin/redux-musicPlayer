@@ -1,7 +1,6 @@
 import 'babel-core/browser-polyfill';
 import * as constants from './../constants';
 
-
 let initialState = {
 	songs: [
 		{ id: 0, name: "Holler" },
@@ -32,7 +31,7 @@ export default function prevSong(state, idx) {
 	}
 }
 
-export default function tracksApp(state = initialState, action) {
+export default function tracksAppStore(state = initialState, action) {
   switch (action.type) {
   	case constants.SET_SONG:
 		return Object.assign({}, state, {
