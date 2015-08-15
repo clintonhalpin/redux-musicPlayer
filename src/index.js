@@ -1,7 +1,8 @@
 import React from 'react';
 import { createStore } from 'redux';
 import tracksApp from './flux/reducers';
-import { PAUSE_SONG, NEXT_SONG } from './flux/constants';
+import * as constants from './flux/constants';
+import * as actions from './flux/actions';
 
 
 let store = createStore(tracksApp);
@@ -10,31 +11,27 @@ console.group('Initial State');
 console.log(store.getState());
 console.groupEnd();
 
-function setCurrentSong(id) {
-	return {
-		type: 'SET_SONG',
-		id
-	}
-}
-
-store.dispatch(setCurrentSong(0));
+store.dispatch(actions.setCurrentSong(0));
 
 console.group('Select a Song');
 console.log(store.getState());
 console.groupEnd();
 
 
-function pauseCurrentSong() {
-	return {
-		type: PAUSE_SONG
-	}
-}
-
-store.dispatch(pauseCurrentSong());
+store.dispatch(actions.pauseCurrentSong());
 
 console.group('Pause the current song');
 console.log(store.getState());
 console.groupEnd();
 
+store.dispatch(actions.nextSong(store.getState().playingSongID));
 
+console.group('Next song');
+console.log(store.getState());
+console.groupEnd();
 
+store.dispatch(actions.prevSong(store.getState().playingSongID));
+
+console.group('Previous song');
+console.log(store.getState());
+console.groupEnd();

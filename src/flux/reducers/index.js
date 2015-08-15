@@ -1,11 +1,5 @@
 import 'babel-core/browser-polyfill';
-
-import { 
-	PLAYER_STOPPED, 
-	PLAYER_PLAYING, 
-	SET_SONG, 
-	PAUSE_SONG 
-} from './../constants'
+import * as constants from './../constants';
 
 
 let initialState = {
@@ -14,20 +8,54 @@ let initialState = {
 		{ id: 1, name: "Yolo" },
 		{ id: 2, name: "Wut" }
 	],
-	playingSong: false,
+	playingSong: constants.PLAYER_STOPPED,
 	playingSongID: ''
+}
+
+export default function nextSong(state, idx) {
+	if(state.playingSongID === 'undefined') {
+		return 0
+	} else if(state.playingSongID === state.songs.length) {
+		return state.playingSongID
+	} else {
+		return state.playingSongID + 1
+	}
+}
+
+export default function prevSong(state, idx) {
+	if(state.playingSongID === 'undefined') {
+		return 0
+	} else if(state.playingSongID === 0) {
+		return 0
+	} else {
+		return state.playingSongID - 1
+	}
 }
 
 export default function tracksApp(state = initialState, action) {
   switch (action.type) {
-  	case SET_SONG:
+  	case constants.SET_SONG:
 		return Object.assign({}, state, {
 			playingSongID: action.id,
-			playingSong: true
+			playingSong: constants.PLAYER_PLAYING
 		});
-	case PAUSE_SONG:
+	case constants.PLAYER_PAUSED:
 		return Object.assign({}, state, {
-			playingSong: false
+			playingSong: constants.PLAYER_PAUSED
+		});
+	case constants.PLAYER_PLAYING:
+		return Object.assign({}, state, {
+			playingSong: constants.PLAYER_PLAYING
+		});
+	case constants.PLAYER_NEXT:
+		return Object.assign({}, state, {
+			playingSongID: nextSong(state, state.playingSongID),
+			playingSong: constants.PLAYER_PLAYING
+		});
+	case constants.PLAYER_PREV:
+		return Object.assign({}, state, {
+			playingSongID: prevSong(state, state.playingSongID),
+			playingSong: constants.PLAYER_PLAYING
 		});
   	default: 
   		return state
