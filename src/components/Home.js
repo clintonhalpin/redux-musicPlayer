@@ -7,7 +7,6 @@ import * as gs from './../styles/';
 export default class Home extends Component {
 
   render() {
-    console.log(this.props)
     return (
       <div style={[gs.ta.center, gs.p._t4, gs.p._b4]}>
         <h1 style={[{color: gs.colors.white}, gs.fs.large, gs.fw.normal ]}>Get started with "Tracks" by siginin in with SoundCloud</h1>

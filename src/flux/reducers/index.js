@@ -2,11 +2,7 @@ import 'babel-core/browser-polyfill';
 import * as constants from './../constants';
 
 let initialState = {
-	songs: [
-		{ id: 0, name: "Holler" },
-		{ id: 1, name: "Yolo" },
-		{ id: 2, name: "Wut" }
-	],
+	songs: constants.defaultSongs,
 	playingSong: constants.PLAYER_STOPPED,
 	playingSongID: ''
 }
