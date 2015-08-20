@@ -3,9 +3,16 @@ export const PLAYER_PAUSED = "PLAYER_PAUSED";
 export const PLAYER_PLAYING = "PLAYER_PLAYING";
 export const PLAYER_PREV = "PLAYER_PREV";
 export const PLAYER_NEXT = "PLAYER_NEXT";
+
 export const SET_SONG = 'SET_SONG';
+
 export const AUTHENTICATE = 'AUTHENTICATE';
 export const AUTHENTICATE_SET_STORAGE = 'AUTHENTICATE_SET_STORAGE';
+
+export const RECIEVE_SONGS = 'RECIEVE_SONGS';
+export const REQUEST_SONGS = 'REQUEST_SONGS';
+export const REQUEST_SONGS_FAILURE = 'REQUEST_SONGS_FAILURE';
+
 
 export const clientID = '464566824c0ae5e54730991f549df552';
 export const redirect = 'http://localhost:3000';

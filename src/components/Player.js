@@ -11,6 +11,7 @@ import * as actionCreators from './../flux/actions';
 export default class Player extends Component {
   render() {
     const { songs, playingSongID, playingSong, actions } = this.props;
+    actions.fetchSongsIfNeeded()
     return (
       <div style={[gs.ta.center, gs.p._b4]}>
         <SongList songs={songs} setSong={actions.setCurrentSong} />

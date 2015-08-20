@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-fetch';
 import * as constants from './../constants';
 import { dispatch } from 'redux';
 
@@ -47,4 +48,41 @@ export function authenticate(code, token) {
 			return dispatch(shouldSetAuthentication(code, token));
 		}
 	}
+}
+
+
+export function receiveSongs(res) {
+	return {
+		type: constants.RECIEVE_SONGS,
+		songs: res,
+		receivedAt: Date.now()
+	}	
+}
+
+function requestSongs() {
+  return {
+    type: constants.REQUEST_SONGS
+  };
+}
+
+function fetchSongs() {
+  var token = localStorage.getItem('token');
+  return dispatch => {
+    dispatch(requestSongs());
+    return fetch(`https://api.soundcloud.com/me/activities/tracks/?client_id=${constants.clientID}&token=${token}&offset=0&limit=24`, {
+    	method: 'get',
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+    }).then(req => req.json())
+      .then(json => console.log(json))
+      .then(json => dispatch(receiveSongs(json)));
+  }
+}
+
+export function fetchSongsIfNeeded() {
+	return (dispatch, getState) => {
+		return dispatch(fetchSongs());
+	};
 }

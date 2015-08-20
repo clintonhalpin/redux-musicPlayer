@@ -54,7 +54,6 @@ export default function tracksAppStore(state = initialState, action) {
 			playingSong: constants.PLAYER_PLAYING
 		});
 	case constants.AUTHENTICATE_SET_STORAGE:
-
 		localStorage.setItem('code', action.auth.code)
 		localStorage.setItem('token', action.auth.token)
 
@@ -62,6 +61,15 @@ export default function tracksAppStore(state = initialState, action) {
 			isLoggedIn: action.isLoggedIn
 		});
 		return state
+	case constants.RECIEVE_SONGS:
+		console.log('Recieve Songs')
+		console.log(action)
+	case constants.REQUEST_SONGS:
+		console.log('Request Songs')
+		console.log(action)
+	case constants.REQUEST_SONGS_FAILURE:
+		console.log('Request Songs Failure')
+		console.log(action)
   	default: 
   		return state
   }
