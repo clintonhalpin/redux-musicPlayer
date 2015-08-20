@@ -4,7 +4,8 @@ import * as constants from './../constants';
 let initialState = {
 	songs: constants.defaultSongs,
 	playingSong: constants.PLAYER_STOPPED,
-	playingSongID: ''
+	playingSongID: '',
+	isLoggedIn: false
 }
 
 export default function nextSong(state, idx) {
@@ -52,6 +53,15 @@ export default function tracksAppStore(state = initialState, action) {
 			playingSongID: prevSong(state, state.playingSongID),
 			playingSong: constants.PLAYER_PLAYING
 		});
+	case constants.AUTHENTICATE_SET_STORAGE:
+
+		localStorage.setItem('code', action.auth.code)
+		localStorage.setItem('token', action.auth.token)
+
+		return Object.assign({}, state, {
+			isLoggedIn: action.isLoggedIn
+		});
+		return state
   	default: 
   		return state
   }

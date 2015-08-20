@@ -2,7 +2,8 @@ import * as gs from 'react-gs';
 
 const colors = {
 	white: 'white',
-	purple: '#AB00CA'
+	purple: '#AB00CA',
+	selected: '#F6F6F6'
 }
 
 const buttons = {
