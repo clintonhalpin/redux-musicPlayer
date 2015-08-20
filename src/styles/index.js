@@ -24,8 +24,6 @@ const buttonsDark = {
 	color: colors.white
 }
 
-console.log(buttonsDark)
-
 const styles = {
 	...gs,
 	colors,
