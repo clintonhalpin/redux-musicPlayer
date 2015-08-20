@@ -14,13 +14,23 @@ const buttons = {
 	backgroundColor: colors.white,
 	border: 0,
 	borderRadius: gs.p._1.padding / 4,
-	fontSize: gs.fs.medium.fontSize
+	fontSize: gs.fs.medium.fontSize,
+	textDecoration: 'none'
 }
+
+const buttonsDark = {
+	...buttons,
+	backgroundColor: colors.purple,
+	color: colors.white
+}
+
+console.log(buttonsDark)
 
 const styles = {
 	...gs,
 	colors,
-	buttons
+	buttons,
+	buttonsDark
 }
 
 export default styles;
