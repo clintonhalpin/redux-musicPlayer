@@ -23,10 +23,14 @@ class App extends Component {
     if(location.hash || token && code) {
       actions.authenticate(code, token)
     }
+
+    if(this.props.songs.length === 0) {
+      actions.fetchSongsIfNeeded()
+    }
   }
 
    componentWillReceiveProps(nextProps) {
-    
+
     if (nextProps.isLoggedIn && this.context.router.state.location.pathname === '/') {
       this.context.router.transitionTo('player');
     }

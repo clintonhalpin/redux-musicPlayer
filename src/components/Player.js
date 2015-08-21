@@ -13,11 +13,9 @@ export default class Player extends Component {
     super(props)
   }
   render() {
-    const { songs, playingSongID, playingSong, actions } = this.props;
-    actions.fetchSongsIfNeeded()
     return (
       <div style={[gs.ta.center, gs.p._b4]}>
-        <SongList songs={songs} setSong={actions.setCurrentSong} />
+        <SongList songs={this.props.songs} setSong={this.props.actions.setCurrentSong} />
       </div>
     );
   }
