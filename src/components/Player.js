@@ -14,7 +14,7 @@ export default class Player extends Component {
   }
   render() {
     return (
-      <div style={[gs.p._b4]}>
+      <div style={[gs.p._b4, { maxWidth: '64rem', marginLeft: 'auto', marginRight: 'auto'}]}>
         <SongList songs={this.props.songs} setSong={this.props.actions.setCurrentSong} />
       </div>
     );

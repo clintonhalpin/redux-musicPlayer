@@ -43,7 +43,7 @@ class App extends Component {
     let isHomePage = location.pathname === '/';
 
     return (
-      <div style={[{backgroundColor: isHomePage ? '#9013FE' : '#EFEFEF', height: '100%'}]}>
+      <div style={[{backgroundColor: isHomePage ? '#9013FE' : 'white', height: '100%'}]}>
         <Header />
         {children}
       </div>
