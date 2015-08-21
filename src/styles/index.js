@@ -2,7 +2,7 @@ import * as gs from 'react-gs';
 
 const colors = {
 	white: 'white',
-	purple: '#AB00CA',
+	purple: '#9013FE',
 	selected: '#F6F6F6'
 }
 

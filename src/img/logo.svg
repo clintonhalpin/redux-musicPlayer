@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
+    <title>Polygon 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="200 23 209.381978 27.5181224 211.699135 37.6702512 205.206605 45.8116264 194.793395 45.8116264 188.300865 37.6702512 190.618022 27.5181224 "></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="iPhone-6-Copy-4" sketch:type="MSArtboardGroup" transform="translate(-188.000000, -23.000000)">
+            <g id="Polygon-1">
+                <use fill="none" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

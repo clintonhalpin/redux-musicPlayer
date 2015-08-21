@@ -6,6 +6,7 @@ import Radium from 'radium';
 import * as actionCreators from './../flux/actions';
 import { bindActionCreators } from 'redux';
 import { getQueryParameterByName } from './../util';
+import Header from './../components/Header';
 
 @Radium
 class App extends Component {
@@ -42,8 +43,8 @@ class App extends Component {
     let isHomePage = location.pathname === '/';
 
     return (
-      <div style={[{backgroundColor: isHomePage ? '#B10DC9' : 'white', height: '100%'}]}>
-        <h1 style={[gs.ta.center, gs.p._t1, gs.p._b2, gs.fw.normal, {color: isHomePage ? 'white': '#222'}, gs.m._0]}>tracks</h1>
+      <div style={[{backgroundColor: isHomePage ? gs.color.purple : '#EFEFEF', height: '100%'}]}>
+        <Header />
         {children}
       </div>
     );

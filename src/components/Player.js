@@ -14,7 +14,7 @@ export default class Player extends Component {
   }
   render() {
     return (
-      <div style={[gs.ta.center, gs.p._b4]}>
+      <div style={[gs.p._b4]}>
         <SongList songs={this.props.songs} setSong={this.props.actions.setCurrentSong} />
       </div>
     );
