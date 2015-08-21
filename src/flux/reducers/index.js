@@ -5,7 +5,8 @@ let initialState = {
 	songs: [],
 	playingSong: constants.PLAYER_STOPPED,
 	playingSongID: '',
-	isLoggedIn: false
+	isLoggedIn: false,
+    isFetching: false
 }
 
 export default function nextSong(state, idx) {
@@ -66,11 +67,15 @@ export default function tracksAppStore(state = initialState, action) {
 			return item.origin
 		});
 		return Object.assign({}, state, {
-			songs: cleanSongArray
+			songs: cleanSongArray,
+            isFetching: false
 		});
 		return state
 	case constants.REQUEST_SONGS:
-		return state
+		return Object.assign({}, state, {
+			isFetching: action.isFetching 
+		});
+
 	case constants.REQUEST_SONGS_FAILURE:
 		return state
   	default: 

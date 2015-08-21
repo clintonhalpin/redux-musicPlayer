@@ -62,7 +62,8 @@ export function receiveSongs(res) {
 
 function requestSongs() {
   return {
-    type: constants.REQUEST_SONGS
+    type: constants.REQUEST_SONGS,
+    isFetching: true
   };
 }
 
