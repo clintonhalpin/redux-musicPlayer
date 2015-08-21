@@ -5,9 +5,15 @@ import { secondsToTime } from './../util/'
 import SongItem from './SongItem'
 @Radium
 export default class SongList extends Component {
+	constructor(props) {
+		super(props)
+	}
 	handleClick(id) {
 		event.preventDefault();
 		this.props.setSong(id);
+	}
+	componentWillRecieveProps(nextProps) {
+		this.props = nextProps;
 	}
 	render(){
 		const { songs, setSong } = this.props;

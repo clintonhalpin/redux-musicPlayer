@@ -14,7 +14,7 @@ export const REQUEST_SONGS = 'REQUEST_SONGS';
 export const REQUEST_SONGS_FAILURE = 'REQUEST_SONGS_FAILURE';
 
 
-export const clientID = '464566824c0ae5e54730991f549df552';
+export const clientID = '32cf5214879b701f8572959b0a0ab630';
 export const redirect = 'http://localhost:3000';
 export const auth_url = `https://soundcloud.com/connect?client_id=${clientID}&response_type=code_and_token&scope=non-expiring&redirect_uri=${redirect}`;
 

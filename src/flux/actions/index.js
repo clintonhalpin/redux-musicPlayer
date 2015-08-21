@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import axios from 'axios';
 import * as constants from './../constants';
 import { dispatch } from 'redux';
 
@@ -65,19 +66,27 @@ function requestSongs() {
   };
 }
 
-function fetchSongs() {
+function requestSongsFailure() {
+  return {
+    type: constants.REQUEST_SONGS_FAILURE
+  };
+}
+
+function fetchSongs(cb) {
   var token = localStorage.getItem('token');
   return dispatch => {
     dispatch(requestSongs());
-    return fetch(`https://api.soundcloud.com/me/activities/tracks/?client_id=${constants.clientID}&token=${token}&offset=0&limit=24`, {
-    	method: 'get',
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		},
-    }).then(req => req.json())
-      .then(json => console.log(json))
-      .then(json => dispatch(receiveSongs(json)));
+
+    var protectedURL = `http://api.soundcloud.com/me/activities/tracks/?client_id=${constants.clientID}&oauth_token=${token}&offset=0&limit=24`;
+   
+	return axios({
+		url: protectedURL
+	}).then(function (res) {
+		dispatch(receiveSongs(res.data))
+	})
+	.catch(function (res) {
+		dispatch(requestSongsFailure())
+	});
   }
 }
 

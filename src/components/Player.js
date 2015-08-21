@@ -9,6 +9,9 @@ import * as actionCreators from './../flux/actions';
 
 @Radium
 export default class Player extends Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     const { songs, playingSongID, playingSong, actions } = this.props;
     actions.fetchSongsIfNeeded()

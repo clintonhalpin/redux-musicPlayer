@@ -62,14 +62,17 @@ export default function tracksAppStore(state = initialState, action) {
 		});
 		return state
 	case constants.RECIEVE_SONGS:
-		console.log('Recieve Songs')
-		console.log(action)
+		var cleanSongArray = action.songs.collection.map((item, idx) => {
+			return item.origin
+		});
+		return Object.assign({}, state, {
+			songs: cleanSongArray
+		});
+		return state
 	case constants.REQUEST_SONGS:
-		console.log('Request Songs')
-		console.log(action)
+		return state
 	case constants.REQUEST_SONGS_FAILURE:
-		console.log('Request Songs Failure')
-		console.log(action)
+		return state
   	default: 
   		return state
   }

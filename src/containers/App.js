@@ -26,6 +26,7 @@ class App extends Component {
   }
 
    componentWillReceiveProps(nextProps) {
+    
     if (nextProps.isLoggedIn && this.context.router.state.location.pathname === '/') {
       this.context.router.transitionTo('player');
     }
