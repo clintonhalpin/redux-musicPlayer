@@ -1,27 +1,25 @@
 import React, { Component, PropTypes } from 'react';
-import _ from 'lodash';
 import Radium from 'radium';
-import * as gs from './../styles/';
-import axios from 'axios';
-import { auth_url } from './../flux/constants/';
+import PlayButton from './PlayButton'
+
+
 
 @Radium
 export default class Home extends Component {
   render() {
-    const { song } = this.props;
-    if(song) {
+    const { song, playingSong } = this.props;
+      console.log(playingSong)
       return (
-        <div className="play-bar">
-          {song.title}
+        <div className="play-bar border-top flex--container">
+          <div className="mr2">
+            <PlayButton playing={playingSong === "PLAYER_PLAYING" ? true : false} />
+            Prev, Play, Next
+          </div>
+          <div className="flex--1">
+            <p className="m0">Title</p>
+            <progress value="20" max="100" className="wi--full" />
+          </div>
         </div>
-      );
-    } else {
-      return (
-        <div className="play-bar">
-          No Song
-        </div>
-      )
-    }
-    
+      ); 
   }
 }

@@ -15,7 +15,7 @@ export default class Player extends Component {
     super(props)
   }
   render() {
-    const { songs, actions, playingSongID } = this.props;
+    const { songs, actions, playingSongID, playingSong } = this.props;
 
     let songObject = _.findIndex(songs, (item) => {
       return item.id === playingSongID
@@ -27,7 +27,7 @@ export default class Player extends Component {
           <SongList songs={songs} setSong={actions.setCurrentSong} />
         </div>
         <div>
-          <PlayBar song={songs[songObject]} />
+          <PlayBar song={songs[songObject]} playingSong={playingSong} />
         </div>
       </div>
     );
