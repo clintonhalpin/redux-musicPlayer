@@ -27,7 +27,7 @@ export default class Player extends Component {
           <SongList songs={songs} setSong={actions.setCurrentSong} />
         </div>
         <div>
-          <PlayBar song={songs[songObject]} playingSong={playingSong} />
+          <PlayBar song={songs[songObject] || {}} playingSong={playingSong} />
         </div>
       </div>
     );
