@@ -4,11 +4,43 @@ import { SoundPlayerContainer } from 'react-soundplayer/addons';
 import { PlayButton, Timer, Progress, Icons } from 'react-soundplayer/components';
 import * as constants from './../flux/constants';
 
+class PlayPause extends React.Component {
+    togglePlay() {
+        let { playing, soundCloudAudio } = this.props;
+        if (playing) {
+            soundCloudAudio.pause();
+        } else {
+            soundCloudAudio.play();
+        }
+    }
+
+    render() {
+        let { playing } = this.props;
+        let text = playing ? 'Pause' : 'Play';
+
+        return (
+            <button onClick={this.togglePlay.bind(this)}>
+                {text}
+            </button>
+        );
+    }
+}
+
+
 @Radium
 export default class Home extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      playing: false
+    }
+  }
+  
+  handleClick() {
+    this.setState({ playing : !this.state.playing })
+    console.log('holler')
+    console.log(this.state)
   }
 
   render() {
@@ -18,10 +50,8 @@ export default class Home extends Component {
           <div className="flex--1">
             <p className="m0">{ song.title || ' ' }</p>
             
-            <SoundPlayerContainer streamUrl={song.stream_url || ''}  clientId={constants.clientID}>
-                <div className="p1 mb3 mt3 flex flex-center bg-darken-1 red rounded">
-                    <PlayButton {...this.props} />
-                </div>
+            <SoundPlayerContainer streamUrl={song.stream_url || ''} playing={this.state.playing} clientId={constants.clientID}>
+               <PlayPause />
             </SoundPlayerContainer>
 
           </div>
