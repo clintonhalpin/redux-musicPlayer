@@ -1,47 +1,36 @@
-import React, { PropTypes } from 'react';
+import React, { Component } from 'react';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import logger from '../middleware/logger';
-import thunk from 'redux-thunk';
-import Router from './Router';
-import * as reducers from '../reducers';
-import { devTools, persistState } from 'redux-devtools';
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
+import Radium from 'radium';
+import {Router, Route } from 'react-router';
+import tracksAppStore from './../flux/reducers';
+import * as gs from './../styles/';
+import App from './App';
+import Home from './../components/Home';
+import Player from './../components/Player';
+import { thunk, logger, authentication } from './../flux/middleware/'
 
-let finalCreateStore;
-if(__DEV_TOOLS__) {
-  finalCreateStore = compose(
-    applyMiddleware(logger, thunk),
-    devTools(),
-    persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
-    createStore
-  );
-} else {
-  finalCreateStore = applyMiddleware(logger, thunk)(createStore);
-}
+let createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
+let store = createStoreWithMiddleware(tracksAppStore);
 
-const reducer = combineReducers(reducers);
-const store = finalCreateStore(reducer);
-
-export default class Root extends React.Component {
-  render () {
-    const { history } = this.props;
+@Radium
+export default class Root extends Component {
+render() {
     return (
-      <div>
+      <div style={[gs.ff.sanSerif, gs.p._0, gs.m._0]}>
         <Provider store={store}>
-          {() => <Router {...{ history }} />}
+          {() =>
+            <Router history={this.props.history}>
+              <Route component={App}>
+                <Route path="/" component={Home} />
+                <Route path="/player" component={Player} />
+              </Route>
+            </Router>
+          }
         </Provider>
-        {__DEV_TOOLS__ ? 
-          <DebugPanel top right bottom>
-            <DevTools store={store}
-              monitor={LogMonitor} />
-          </DebugPanel> : null
-        }
       </div>
     );
   }
 }
 
-Root.propTypes = {
-  history: PropTypes.object.isRequired
-};
+

@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Radium from 'radium';
+import { SoundPlayerContainer } from 'react-soundplayer/addons';
 import { PlayButton, Timer, Progress, Icons } from 'react-soundplayer/components';
 import * as constants from './../flux/constants';
-import SoundCloudAudio from 'soundcloud-audio';
+
 
 class PlayPause extends React.Component {
     togglePlay() {
@@ -25,8 +26,6 @@ class PlayPause extends React.Component {
         );
     }
 }
-
-
 // @Radium
 // export default class PlayBar extends Component {
 
