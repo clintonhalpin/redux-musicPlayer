@@ -45,10 +45,11 @@ module.exports = {
     },
     {
       test: /\.svg?$/,
-      loaders: [
-          'file-loader'
-      ]
-    }
-    ]
+      loaders: ['file-loader']
+    },
+    {
+      test: /\.json?$/,
+      loaders: [ 'json']
+    }]
   }
 };
