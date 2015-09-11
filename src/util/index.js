@@ -1,4 +1,4 @@
-export default (time) => {
+export function secondsToTime(time) {
     // Minutes and seconds
     var mins = ~~(time / 60);
     var secs = time % 60;
@@ -17,4 +17,11 @@ export default (time) => {
     ret += "" + mins + ":" + (secs < 10 ? "0" : "");
     ret += "" + secs;
     return ret;
+}
+
+export function getQueryParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
