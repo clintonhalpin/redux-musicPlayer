@@ -32,29 +32,40 @@ export default function prevSong(state, idx) {
 export default function tracksAppStore(state = initialState, action) {
   switch (action.type) {
   	case constants.SET_SONG:
+
 		return Object.assign({}, state, {
 			playingSongID: action.id,
 			playingSong: constants.PLAYER_PLAYING
 		});
+
 	case constants.PLAYER_PAUSED:
+
 		return Object.assign({}, state, {
 			playingSong: constants.PLAYER_PAUSED
 		});
+
 	case constants.PLAYER_PLAYING:
+
 		return Object.assign({}, state, {
 			playingSong: constants.PLAYER_PLAYING
 		});
+
 	case constants.PLAYER_NEXT:
+
 		return Object.assign({}, state, {
 			playingSongID: nextSong(state, state.playingSongID),
 			playingSong: constants.PLAYER_PLAYING
 		});
+
 	case constants.PLAYER_PREV:
+
 		return Object.assign({}, state, {
 			playingSongID: prevSong(state, state.playingSongID),
 			playingSong: constants.PLAYER_PLAYING
 		});
+
 	case constants.AUTHENTICATE_SET_STORAGE:
+
 		localStorage.setItem('code', action.auth.code)
 		localStorage.setItem('token', action.auth.token)
 
@@ -62,23 +73,31 @@ export default function tracksAppStore(state = initialState, action) {
 			isLoggedIn: action.isLoggedIn
 		});
 		return state
+
 	case constants.RECIEVE_SONGS:
+
 		var cleanSongArray = action.songs.collection.map((item, idx) => {
 			return item.origin
 		});
+
 		return Object.assign({}, state, {
 			songs: cleanSongArray,
             isFetching: false
 		});
 		return state
+
 	case constants.REQUEST_SONGS:
+
 		return Object.assign({}, state, {
 			isFetching: action.isFetching 
 		});
 
 	case constants.REQUEST_SONGS_FAILURE:
+
 		return state
+
   	default: 
+  	
   		return state
   }
 }
